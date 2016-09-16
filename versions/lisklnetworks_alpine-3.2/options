@@ -1,5 +1,0 @@
-export RELEASE="v3.2"
-export MIRROR="http://nl.alpinelinux.org/alpine"
-export BUILD_OPTIONS=(-d -s -E -c -t UTC -r $RELEASE -m $MIRROR)
-export TAGS=(lisklnetworks/alpine:3.2)
-export PUSH_IMAGE="false"
