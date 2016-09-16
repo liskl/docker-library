@@ -84,20 +84,20 @@ push() {
 	done
 }
 
-library() {
-	for file in versions/library-*/options; do
-		# shellcheck source=versions/library-3.2/options
-		source "$file"
-		local refs
-		refs="$(git ls-remote --exit-code --heads origin rootfs/library-${RELEASE#v})"
-		: "${refs:?}"
-		for tag in "${TAGS[@]}"; do
-			echo "${tag#*:}:" \
-				"git://github.com/lisklnetworks/docker-alpine@${refs:0:40}" \
-				"versions/library-${RELEASE#v}"
-		done
-	done
-}
+#library() {
+#	for file in versions/library-*/options; do
+#		# shellcheck source=versions/library-3.2/options
+#		source "$file"
+#		local refs
+#		refs="$(git ls-remote --exit-code --heads origin rootfs/library-${RELEASE#v})"
+#		: "${refs:?}"
+#		for tag in "${TAGS[@]}"; do
+#			echo "${tag#*:}:" \
+#				"git://github.com/lisklnetworks/docker-alpine@${refs:0:40}" \
+#				"versions/library-${RELEASE#v}"
+#		done
+#	done
+#}
 
 main() {
 	set -eo pipefail; [[ "$TRACE" ]] && set -x
@@ -106,7 +106,7 @@ main() {
 		test)	shift;	run_tests "$@";;
 		commit)	shift;	commit "$@";;
 		push)	shift;	push "$@";;
-		library) shift; library;;
+#		library) shift; library;;
 		*)		build "$@";;
 	esac
 }
