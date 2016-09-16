@@ -9,7 +9,7 @@ machine:
   pre:
 #    - sudo curl -L -o /usr/bin/docker1 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.1-circleci'
     - sudo curl -L -o /tmp/docker-1.12.1.tgz 'https://get.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz'
-    - sudo tar -xvzf /tmp/tmp/docker-1.12.1.tgz -C /usr/bin docker
+    - sudo tar -xvzf /tmp/docker-1.12.1.tgz -C /usr/bin docker
     - sudo chmod 0755 /usr/bin/docker
   services:
     - docker
