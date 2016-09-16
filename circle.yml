@@ -22,9 +22,10 @@ dependencies:
   override:
     - docker info
     - ./build:
-        parallel: true
+        parallel: false
         files:
-          - versions/**/options
+          - versions/liskl_base/options
+          - versions/liskl_flask/options
     - docker images
 
 test:
