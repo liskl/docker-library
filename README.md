@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Liskl Networks, Docker Library
 
 [![CircleCI](https://circleci.com/gh/liskl/docker-library/tree/development.svg?style=svg)](https://circleci.com/gh/liskl/docker-library/tree/development)
@@ -18,7 +18,3 @@ All commits and pull requests should be done in the master repository: docks.
 This is so you only need one project in your editor up for _n_ docker images.
 After contributions are merged, they can be pushed back out to their individual
 repositories.
-=======
-# docker-mosca
-Node.js MQTT 3.1 Compatible Docker Image Based on liskl/base
->>>>>>> ff0e73a5f88b0cdd3678ff9ee44881025e22430d
