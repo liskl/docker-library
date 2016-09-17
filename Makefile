@@ -1,15 +1,20 @@
 
 builders: 
 	test -f versions/liskl_base/rootfs.tar.gz || \
-		/usr/local/bin/docker build -t 'builder' ./builder/.
-	test -f versions/liskl_base/rootfs.tar.gz || \
+		/usr/local/bin/docker build -t 'builder' ./builder/. \
 		/usr/local/bin/docker run --rm 'alpine-builder' -d -s -E -c -t UTC -r 'v3.4' -m 'http://nl.alpinelinux.org/alpine' > './versions/liskl_base/rootfs.tar.gz'
 
 base: builder
 	docker build -t 'liskl/base' ./versions/liskl_base/
+	docker rmi 'alpine-builder'
 
-flask:  builder base
+flask: base
 	docker build -t 'liskl/flask' ./versions/liskl_flask/
+
+mosca: base
+
+	docker rmi --filter name='liskl/mosca'
+	docker build -t 'liskl/mosca' ./versions/liskl_mosca/
 
 clean:
 	/bin/bash -c 'docker stop $( docker ps -a -q )' 2>/dev/null || true
