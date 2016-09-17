@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 build() {
-	declare build_files="${*:-versions/**/options}"
+	#declare build_files="${*:-versions/**/options}"
+
+	declare build_files="versions/liskl_base/options versions/liskl_flask/options"
 
 	[[ "$BUILDER_IMAGE" ]] || {
 		BUILDER_IMAGE="alpine-builder"
