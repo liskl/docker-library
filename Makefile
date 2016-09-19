@@ -4,16 +4,16 @@ builders:
 		/usr/local/bin/docker build -t 'builder' ./builder/. \
 		/usr/local/bin/docker run --rm 'alpine-builder' -d -s -E -c -t UTC -r 'v3.4' -m 'http://nl.alpinelinux.org/alpine' > './versions/liskl_base/rootfs.tar.gz'
 
-base: builder
+base: builders
 	docker build -t 'liskl/base' ./versions/liskl_base/
-	docker rmi 'alpine-builder'
+	docker rmi 'alpine-builder' || true
 
 flask: base
 	docker build -t 'liskl/flask' ./versions/liskl_flask/
 
 mosca: base
 
-	docker rmi --filter name='liskl/mosca'
+	docker rmi 'liskl/mosca' || true
 	docker build -t 'liskl/mosca' ./versions/liskl_mosca/
 
 clean:
