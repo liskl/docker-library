@@ -48,8 +48,8 @@ RUN set -ex \
 		readline-dev \
 		sqlite-dev \
 		tcl-dev \
-		tk \
-		tk-dev \
+#		tk \
+#		tk-dev \
 		xz-dev \
 		zlib-dev \
 # add build deps before removing fetch deps in case there's overlap
