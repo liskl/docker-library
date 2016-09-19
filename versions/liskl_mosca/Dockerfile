@@ -15,7 +15,7 @@ ENV VERSION=v4.5.0 NPM_VERSION=2
 # ENV CONFIG_FLAGS="--without-npm" RM_DIRS=/usr/include
 # ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libgcc libstdc++" RM_DIRS=/usr/include
 
-RUN apk-install --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ gnupg git && \
+RUN apk-install curl make gcc g++ python linux-headers paxctl libgcc libstdc++ gnupg git && \
   gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \

@@ -35,7 +35,7 @@ RUN set -ex \
 	&& tar -xJC /usr/src/python --strip-components=1 -f python.tar.xz \
 	&& rm python.tar.xz \
 	\
-	&& apk-install --no-cache --virtual .build-deps  \
+	&& apk-install --virtual .build-deps  \
 		bzip2-dev \
 		gcc \
 		libc-dev \
