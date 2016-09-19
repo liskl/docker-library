@@ -10,7 +10,7 @@ ENV LANG C.UTF-8
 
 # install ca-certificates so that HTTPS works consistently
 # the other runtime dependencies for Python are installed later
-RUN apk-install --no-cache ca-certificates
+RUN apk-install ca-certificates
 
 ENV GPG_KEY 97FC712E4C024BBEA48A61ED3A5CA953F73C700D
 ENV PYTHON_VERSION 3.5.2
@@ -19,7 +19,7 @@ ENV PYTHON_VERSION 3.5.2
 ENV PYTHON_PIP_VERSION 8.1.2
 
 RUN set -ex \
-	&& apk-install --no-cache --virtual .fetch-deps \
+	&& apk-install --virtual .fetch-deps \
 		gnupg \
 		openssl \
 		tar \
